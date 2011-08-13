@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Lastname:</b>
+  <%= @player.lastname %>
+</p>
+
+<p>
+  <b>Street:</b>
+  <%= @player.street %>
+</p>
+
+<p>
+  <b>Zip code:</b>
+  <%= @player.zip_code %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @player.city %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @player.phone %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @player.mobile %>
+</p>
+
+<p>
+  <b>Birthday:</b>
+  <%= @player.birthday %>
+</p>
+
+<p>
+  <b>Size pants:</b>
+  <%= @player.size_pants %>
+</p>
+
+
+<%= link_to 'Edit', edit_player_path(@player) %> |
+<%= link_to 'Back', players_path %>

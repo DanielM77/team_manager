@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>training date:</b>
+  <%= @training.training_date %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @training.comment %>
+</p>
+<table>
+<tr>
+  <th colspan="2" ></th>
+  <th>Lastname</th>
+  <th>Firstname</th>
+</tr>
+<% @players.each do |player| %>
+  <tr>
+  <% 
+    training_member = player.training_members.find_by_training_id(@training)
+    if player.trainings.first(@training)
+  %>
+    <td><%= button_to 'Remove', training_member_path(training_member), :method => :delete %></td>
+  <% else %>
+    <td><%= button_to 'Add', training_members_path(:player_id => player)%></td>
+  <% end %>
+    <td><%=player.lastname %></td>
+    <td><%=player.firstname %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<%= link_to 'Edit', edit_training_path(@training) %> |
+<%= link_to 'Back', team_path %>

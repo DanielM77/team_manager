@@ -1,0 +1,10 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<h2>Team Overview</h2>
+<ul>
+<% @players.each do |player| %>
+  <li><%= player.lastname %></li>
+<% end %>
+</ul>
+

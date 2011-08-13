@@ -1,0 +1,9 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<h1>Team Overview</h1>
+<% @players.each do |player| %>
+  <h3><%= player.lastname %></h3>
+  <%= button_to 'Add to training', training_members_path(:player_id => player) %>
+<% end %>
+
