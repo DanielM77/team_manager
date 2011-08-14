@@ -1,14 +1,17 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
-one:
-  lastname: 
-  street: 
-  zip_code: 
-  city: 
-  phone: 
-  mobile: 
-  birthday: 
-  size_pants: MyString
+valid_player:
+  lastname: Münstermann
+  firstname: Daniel
+  street: Hunsrückstr. 36
+  zip_code: 65520
+  city: Bad Camberg
+  phone: 064342074236
+  email: daniel.muenstermann@online.de
+  mobile: 01726240581
+  birthday: 18.02.1977
+  size_shirt: XL
+  size_pants: 45
 
 two:
   lastname: 

@@ -2,7 +2,7 @@ require 'test_helper'
 
 class PlayersControllerTest < ActionController::TestCase
   setup do
-    @player = players(:one)
+    @player = players(:valid_player)
   end
 
   test "should get index" do
@@ -22,6 +22,17 @@ class PlayersControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to player_path(assigns(:player))
+  end
+
+  test "player is not valid without firstname, lastname, mobile and email" do
+    player = Player.new
+    assert !player.save
+  end
+
+  test "player has no valid birthday" do
+    invalid_birthday_player = @player
+    invalid_birthday_player.update_attributes(:birthday => 'aa.02.1977');
+    assert = !invalid_birthday_player.save
   end
 
   test "should show player" do
