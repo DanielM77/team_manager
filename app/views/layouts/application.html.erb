@@ -11,6 +11,16 @@
   <div id="header">
     <h1>Teammanager 0.1</h1>
   </div>
+    <div id="header-nav">
+    <ul id="horizontal-nav">
+      <li><%= link_to 'Home', team_path %></li>
+      <li><%= link_to 'Players', players_path %></li>
+      <li><%= link_to 'Training', trainings_path %></li>
+      <li><%= link_to 'Game', '#' %></li>
+      <li><%= link_to 'Financials', '#' %></li>
+      <li><%= link_to 'Help', '#' %></li>
+    </ul>
+    </div>
   <div id="content">
     <%= yield %>
   </div>

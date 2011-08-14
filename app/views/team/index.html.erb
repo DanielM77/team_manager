@@ -1,10 +1,17 @@
 <% if notice %>
 <p id="notice"><%= notice %></p>
 <% end %>
-<h2>Team Overview</h2>
-<ul>
+<h1>Team Overview</h1>
+<table>
+<tr>
+<th>Lastname</th>
+<th>Firstname</th>
+</tr>
 <% @players.each do |player| %>
-  <li><%= player.lastname %></li>
+<tr>
+  <td><%= player.lastname %></td>
+  <td><%= player.firstname %></td>
+</tr>
 <% end %>
-</ul>
+</table>
 

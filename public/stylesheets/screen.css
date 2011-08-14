@@ -1,12 +1,14 @@
 /* screen.css */
 body {
   margin: 0;
+  padding: 0;
   line-height:1.2em;
 }
 h1, p, ul {
   margin: 0;
   color:#464C35;
-  padding 10px;
+  padding: 10px;
+  margin-bottom: 10px;
 }
 ul {
   padding: 10px;
@@ -24,6 +26,10 @@ ul li {
 #sidenav{
   float: left;
   width: 150px;  
+}
+#header-nav {
+  margin-top: 5px;
+  background-color:#BCCC8E;
 }
 #header {
 /*  background: #96B4E;*/
@@ -47,5 +53,47 @@ ul li {
   clear:both;
   background: #96B4E;
 }
-
-
+table {
+  font-size: 12px;
+  margin-top: 45px;
+  text-align: left;
+  border-collapse: collapse;
+}
+table th {
+  font-size: 13px;
+  font-weight: bold;
+  padding: 8px;
+  background: #404c1e;
+  border-top: 4px solid #96B4E;
+  border-bottom: 1px solid #fff;
+  color: #fff;
+}
+table td {
+  padding: 8px;
+  background: #bccc8e;
+  border-bottom: 1px solid #fff;
+  color: #464C35;
+  border-top: 1px solid transparent;
+}
+table tr:hover td {
+  background: #b2d454;
+}
+/* horizontal navigation */
+ul#horizontal-nav{
+  margin:0px;
+  padding:0.8em;
+  text-alignment:center;
+}
+ul#horizontal-nav li {
+  list-style:none;
+  display:inline;
+  margin:0.4em;
+  padding:0em;
+}
+ul#horizontal-nav a, ul#horizontal-nav span {
+  padding:0.2em 1em;
+  text-decoration:none; font-weight:bold;
+}
+ul#horizontal-nav a:hover, ul#horizontal-nav span {
+  background: #b2d454;
+}
