@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>training date</th>
-    <th>Comment</th>
+    <th>Training Date</th>
+    <th>Training Members</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,8 +11,8 @@
 
 <% @trainings.each do |training| %>
   <tr>
-    <td><%= training.training_date %></td>
-    <td><%= training.comment %></td>
+    <td><%= format_date(training.training_date) %></td>
+    <td><%= training.players.count %></td>
     <td><%= link_to 'Show', training %></td>
     <td><%= link_to 'Edit', edit_training_path(training) %></td>
     <td><%= link_to 'Destroy', training, :confirm => 'Are you sure?', :method => :delete %></td>

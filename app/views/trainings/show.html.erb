@@ -17,14 +17,15 @@
 </tr>
 <% @players.each do |player| %>
   <tr>
-  <% 
+  <%  
     training_member = player.training_members.find_by_training_id(@training)
-    if player.trainings.first(@training)
-  %>
-    <td><%= button_to 'Remove', training_member_path(training_member), :method => :delete %></td>
-  <% else %>
-    <td><%= button_to 'Add', training_members_path(:player_id => player)%></td>
-  <% end %>
+    begin
+      player.trainings.find(@training) %>
+       <td><%= button_to 'Remove', training_member_path(training_member), :method => :delete %></td>
+   <% rescue ActiveRecord::RecordNotFound  %>
+        <td><%= button_to 'Add', training_members_path(:player_id => player, :training_id => @training)%></td>
+   <% end %>
+  
     <td><%=player.lastname %></td>
     <td><%=player.firstname %></td>
   </tr>
@@ -33,4 +34,4 @@
 
 
 <%= link_to 'Edit', edit_training_path(@training) %> |
-<%= link_to 'Back', team_path %>
+<%= link_to 'Back', trainings_path %>

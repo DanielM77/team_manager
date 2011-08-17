@@ -41,11 +41,7 @@ class TrainingMembersController < ApplicationController
   # POST /training_members.xml
   def create
     player = Player.find(params[:player_id])
-    def training 
-      Training.last
-    rescue ActiveRecord::RecordNotFound
-      Training.create
-    end
+    training = Training.find(params[:training_id])
     @training_member = training.training_members.build(:player => player)
     respond_to do |format|
       if @training_member.save
