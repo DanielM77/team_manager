@@ -1,5 +1,12 @@
 TeamManager::Application.routes.draw do
-  get "team/index"
+
+  resources :game_members
+
+  resources :games
+
+  resources :teams
+
+  get "team_statistics/index"
 
   resources :training_members
 
@@ -56,7 +63,7 @@ TeamManager::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-   root :to => "team#index", :as => 'team'
+   root :to => "team_statistics#index", :as => 'team_statistics'
 
   # See how all your routes lay out with "rake routes"
 

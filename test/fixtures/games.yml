@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  game_date: 2011-08-19
+  goals_home: 1
+  goals_away: 1
+
+two:
+  game_date: 2011-08-19
+  goals_home: 1
+  goals_away: 1

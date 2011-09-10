@@ -1,0 +1,70 @@
+<%= form_for(@team) do |team_form| -%>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% @team.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= team_form.label :name %><br />
+    <%= team_form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= team_form.label :street %><br />
+    <%= team_form.text_field :street %>
+  </div>
+  <div class="field">
+    <%= team_form.label :zip_code %><br />
+    <%= team_form.text_field :zip_code %>
+  </div>
+  <div class="field">
+    <%= team_form.label :city %><br />
+    <%= team_form.text_field :city %>
+  </div>
+  <div class="field">
+    <%= team_form.label :distance %><br />
+    <%= team_form.text_field :distance %>
+  </div>
+  <div id="bonuses">
+    <% team_form.fields_for :bonuses do |bonus_form| %>
+      <p>
+      <div>
+        <div class="field">
+          <%= bonus_form.label :bonus_type %>
+          <%= bonus_form.select :bonus_type, Bonus::BONUS_TYPES, :prompt => "Select a bonus type" %>
+        </div>
+        <div class="field">
+          <%= bonus_form.label :value %>
+          <%= bonus_form.text_field :value %>
+        </div>
+        <div class="field">
+          <%= bonus_form.label :max_players %>
+          <%= bonus_form.text_field :max_players %>
+        </div>
+        <div class="field">
+          <%= bonus_form.label :is_shared %>
+          <%= bonus_form.check_box :is_shared %>
+        </div>
+        <% unless bonus_form.object.new_record? %>
+          <div>
+            <%= bonus_form.label '_destroy','remove' %>
+            <%= bonus_form.check_box '_destroy' %>
+          </div>
+        <% end %>
+      </div>
+      </p>
+  <% end %>
+  </div>
+  <p>
+    <%=add_bonus_link "Add a bonus", team_form %>
+  </p>
+  <div class="actions">
+    <%= team_form.submit %>
+  </div>
+<% end -%>

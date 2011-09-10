@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: FSV Würges
+  street: Weiter unten 20
+  zip_code: 65520
+  city: Bad Camberg
+  distance: 1
+
+two:
+  name: FSV Dauborn
+  street: Dauborner Str. 20
+  zip_code: 65527
+  city: Dauborn
+  distance: 12

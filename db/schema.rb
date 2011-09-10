@@ -10,7 +10,34 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110805162458) do
+ActiveRecord::Schema.define(:version => 20110910124557) do
+
+  create_table "bonuses", :force => true do |t|
+    t.string   "bonus_type"
+    t.float    "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "team_id"
+    t.integer  "max_players"
+    t.boolean  "is_shared"
+  end
+
+  create_table "game_members", :force => true do |t|
+    t.integer  "game_id"
+    t.integer  "player_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "games", :force => true do |t|
+    t.date     "game_date"
+    t.integer  "goals_home"
+    t.integer  "goals_away"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "home_id"
+    t.integer  "away_id"
+  end
 
   create_table "players", :force => true do |t|
     t.string   "lastname"
@@ -26,6 +53,17 @@ ActiveRecord::Schema.define(:version => 20110805162458) do
     t.string   "size_pants"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "teams", :force => true do |t|
+    t.string   "name"
+    t.string   "street"
+    t.string   "zip_code"
+    t.string   "city"
+    t.integer  "distance"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "bonus_id"
   end
 
   create_table "training_members", :force => true do |t|

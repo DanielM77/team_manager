@@ -1,0 +1,13 @@
+<div class="bonus">
+  <% tf.fields_for :bonuses, bonus do |f| %>
+        <%= f.label :bonus_type %><br />
+        <%= f.select :bonus_type, Bonus::BONUS_TYPES, :prompt => "Select a bonus type" %>
+        <%= f.label :value %><br />
+        <%= f.text_field :value %>
+        <%= f.label :max_players %><br />
+        <%= f.text_field :max_players %>
+        <%= f.label :is_shared %><br />
+        <%= f.check_box :is_shared %>
+    <%= link_to_function "remove", "$(this).up('.bonus').remove()" %>
+  <% end %>
+</div>

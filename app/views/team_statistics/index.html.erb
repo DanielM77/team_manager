@@ -1,0 +1,21 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<h1>Team Overview</h1>
+<table>
+<tr>
+<th>Lastname</th>
+<th>Firstname</th>
+<th>Games (overall) </th>
+<th>Training (overall) </th>
+</tr>
+<% @players.each do |player| %>
+<tr>
+  <td><%= player.lastname %></td>
+  <td><%= player.firstname %></td>
+  <td><%= player.games.count %> </td>
+  <td><%= player.trainings.count %> </td>
+</tr>
+<% end %>
+</table>
+

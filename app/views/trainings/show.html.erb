@@ -1,12 +1,6 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Training on <%= format_date(@training.training_date) %></h1>
 <p>
-  <b>training date:</b>
-  <%= @training.training_date %>
-</p>
-
-<p>
-  <b>Comment:</b>
   <%= @training.comment %>
 </p>
 <table>

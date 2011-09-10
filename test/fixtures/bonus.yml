@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bonus_type: MyString
+  value: 1.5
+
+two:
+  bonus_type: MyString
+  value: 1.5

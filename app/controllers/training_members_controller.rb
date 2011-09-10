@@ -40,8 +40,8 @@ class TrainingMembersController < ApplicationController
   # POST /training_members
   # POST /training_members.xml
   def create
-    player = Player.find(params[:player_id])
-    training = Training.find(params[:training_id])
+      player = Player.find(params[:player_id])
+      training = Training.find(params[:training_id])
     @training_member = training.training_members.build(:player => player)
     respond_to do |format|
       if @training_member.save
