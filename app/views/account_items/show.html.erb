@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Item date:</b>
+  <%= @account_item.item_date %>
+</p>
+
+<p>
+  <b>Item type:</b>
+  <%= @account_item.item_type %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @account_item.description %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @account_item.value %>
+</p>
+
+
+<%= link_to 'Edit', edit_account_item_path(@account_item) %> |
+<%= link_to 'Back', account_items_path %>

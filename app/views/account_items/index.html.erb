@@ -1,0 +1,29 @@
+<h1>Listing account_items</h1>
+
+<table>
+  <tr>
+    <th>Item date</th>
+    <th>Item type</th>
+    <th>Description</th>
+    <th>Value</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @account_items.each do |account_item| %>
+  <tr>
+    <td><%= account_item.item_date %></td>
+    <td><%= account_item.item_type %></td>
+    <td><%= account_item.description %></td>
+    <td><%= account_item.value %></td>
+    <td><%= link_to 'Show', account_item %></td>
+    <td><%= link_to 'Edit', edit_account_item_path(account_item) %></td>
+    <td><%= link_to 'Destroy', account_item, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Account item', new_account_item_path(:account_id => @account)  %>

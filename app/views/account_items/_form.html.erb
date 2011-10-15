@@ -1,0 +1,34 @@
+<%= form_for([@account, @account.account_items.build]) do |f| %>
+  <!-- <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account_item from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+
+  <% end %>
+-->
+  <div class="field">
+    <%= f.label :item_date %><br />
+    <%= f.date_select :item_date %>
+  </div>
+  <div class="field">
+    <%= f.label :item_type %><br />
+    <%= f.text_field :item_type %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

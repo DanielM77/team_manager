@@ -1,5 +1,10 @@
 TeamManager::Application.routes.draw do
 
+
+  resources :accounts do
+    resources :account_items
+  end
+
   resources :game_members
 
   resources :games

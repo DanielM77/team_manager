@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  item_date: 2011-09-10
+  item_type: MyString
+  description: MyText
+  value: 9.99
+
+two:
+  item_date: 2011-09-10
+  item_type: MyString
+  description: MyText
+  value: 9.99

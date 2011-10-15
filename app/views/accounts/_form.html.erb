@@ -1,0 +1,52 @@
+<%= form_for(@account) do |account_form| -%>
+  <% if @account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account from being saved:</h2>
+
+      <ul>
+      <% @account.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= account_form.label :name %><br />
+    <%= account_form.text_field :name %>
+  </div>
+  <div class="field">
+    <%= account_form.label :team %><br />
+    <%= account_form.collection_select(:team_id, Team.all, :id, :name) %>
+  </div>
+  <div id="account_items">
+  <% account_form.fields_for :account_items do |item_form|%> 
+    <div class="field">
+      <%= item_form.label :item_date %><br />
+      <%= item_form.date_select :item_date %>
+    </div>
+    <div class="field">
+      <%= item_form.label :item_type %><br />
+      <%= item_form.text_field :item_type %>
+    </div>
+    <div class="field">
+      <%= item_form.label :description %><br />
+      <%= item_form.text_area :description %>
+    </div>
+    <div class="field">
+      <%= item_form.label :value %><br />
+      <%= item_form.text_field :value %>
+    </div>
+    <% unless item_form.object.new_record? %>
+      <%= item_form.label  :_delete, "Delete" %>
+      <%= item_form.check_box :_delete %>
+    <% end %>
+  <% end %>
+  </div>
+  <p>
+    <%= add_account_item_link "Add new account item", account_form %>
+  </p>
+  <div class="actions">
+    <%= account_form.submit %>
+  </div>
+<% end -%>

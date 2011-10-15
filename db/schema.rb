@@ -10,7 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110910124557) do
+ActiveRecord::Schema.define(:version => 20110910135212) do
+
+  create_table "account_items", :force => true do |t|
+    t.date     "item_date"
+    t.string   "item_type"
+    t.text     "description"
+    t.decimal  "value"
+    t.integer  "account_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "accounts", :force => true do |t|
+    t.string   "name"
+    t.integer  "team_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "bonuses", :force => true do |t|
     t.string   "bonus_type"
