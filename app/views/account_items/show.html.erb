@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+
+
 <p>
   <b>Item date:</b>
   <%= @account_item.item_date %>
@@ -21,5 +23,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_account_item_path(@account_item) %> |
-<%= link_to 'Back', account_items_path %>
+<%= link_to 'Edit', edit_account_account_item_path(@account_item.account, @account_item) %> |
+<%= link_to 'Back', account_account_items_path %>

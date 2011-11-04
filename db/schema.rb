@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(:version => 20110910135212) do
   end
 
   create_table "bonuses", :force => true do |t|
+    t.integer  "team_id"
     t.string   "bonus_type"
     t.float    "value"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "team_id"
     t.integer  "max_players"
     t.boolean  "is_shared"
   end

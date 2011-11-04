@@ -11,10 +11,11 @@ class AccountItemsController < ApplicationController
     end
   end
 
-  # GET /account_items/1
-  # GET /account_items/1.xml
+  # GET /account/1/account_items/1
+  # GET /account/1/account_items/1.xml
   def show
-    @account_item = AccountItem.find(params[:id])
+    @account = Account.find(params[:account_id])
+    @account_item = @account.account_items.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -22,30 +23,31 @@ class AccountItemsController < ApplicationController
     end
   end
 
-  # GET /account_items/new
-  # GET /account_items/new.xml
+  # GET /account/1/account_items/new
+  # GET /account/1/account_items/new.xml
   def new
     @account = Account.find(params[:account_id])
-
+    @account_item = @account.account_items.build
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @account_item }
+      format.xml  { render :xml => @account }
     end
   end
 
-  # GET /account_items/1/edit
+  # GET /account/1/account_items/1/edit
   def edit
-    @account_item = AccountItem.find(params[:id])
+    @account = Account.find(params[:account_id])
+    @account_item = @account.account_items.find(params[:id])
   end
 
-  # POST /account_items
-  # POST /account_items.xml
+  # POST /account/1/account_items
+  # POST /account/1/account_items.xml
   def create
     @account = Account.find(params[:account_id])
     @account_item = @account.account_items.create(params[:account_item])
     respond_to do |format|
       if @account_item.save
-        format.html { redirect_to(@account_item, :notice => 'Account item was successfully created.') }
+        format.html { redirect_to(account_account_items_url, :notice => 'Account item was successfully created.') }
         format.xml  { render :xml => @account_item, :status => :created, :location => @account_item }
       else
         format.html { render :action => "new" }
@@ -54,8 +56,8 @@ class AccountItemsController < ApplicationController
     end
   end
 
-  # PUT /account_items/1
-  # PUT /account_items/1.xml
+  # PUT /account/1/account_items/1
+  # PUT /account/1/account_items/1.xml
   def update
     @account_item = AccountItem.find(params[:id])
 
@@ -70,8 +72,8 @@ class AccountItemsController < ApplicationController
     end
   end
 
-  # DELETE /account_items/1
-  # DELETE /account_items/1.xml
+  # DELETE /account/1/account_items/1
+  # DELETE /account/1/account_items/1.xml
   def destroy
     @account = Account.find(params[account_id])
     @account_item = @account.account_items.find(params[:id])

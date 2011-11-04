@@ -25,6 +25,7 @@ class AccountsController < ApplicationController
   # GET /accounts/new.xml
   def new
     @account = Account.new
+    @account.account_items.build
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @account }

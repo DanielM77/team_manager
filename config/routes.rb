@@ -18,6 +18,8 @@ TeamManager::Application.routes.draw do
   resources :trainings
 
   resources :players
+  
+  resources :bonus
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

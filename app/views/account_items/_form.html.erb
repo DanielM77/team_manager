@@ -1,17 +1,16 @@
-<%= form_for([@account, @account.account_items.build]) do |f| %>
-  <!-- <% if @account.errors.any? %>
+<%= form_for([@account, @account_item]) do |f| %>
+   <% if @account_item.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@account.errors.count, "error") %> prohibited this account_item from being saved:</h2>
+      <h2><%= pluralize(@account_item.errors.count, "error") %> prohibited this account_item from being saved:</h2>
 
       <ul>
-      <% @account.errors.full_messages.each do |msg| %>
+      <% @account_item.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
 
   <% end %>
--->
   <div class="field">
     <%= f.label :item_date %><br />
     <%= f.date_select :item_date %>
