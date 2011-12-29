@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110910135212) do
+ActiveRecord::Schema.define(:version => 20111228111514) do
 
   create_table "account_items", :force => true do |t|
     t.date     "item_date"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20110910135212) do
     t.integer  "account_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "player_id"
   end
 
   create_table "accounts", :force => true do |t|
@@ -54,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20110910135212) do
     t.datetime "updated_at"
     t.integer  "home_id"
     t.integer  "away_id"
+    t.boolean  "is_accounted", :default => false
   end
 
   create_table "players", :force => true do |t|
@@ -70,6 +72,7 @@ ActiveRecord::Schema.define(:version => 20110910135212) do
     t.string   "size_pants"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "team_id"
   end
 
   create_table "teams", :force => true do |t|
@@ -80,7 +83,6 @@ ActiveRecord::Schema.define(:version => 20110910135212) do
     t.integer  "distance"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "bonus_id"
   end
 
   create_table "training_members", :force => true do |t|

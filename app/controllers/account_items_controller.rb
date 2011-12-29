@@ -75,12 +75,12 @@ class AccountItemsController < ApplicationController
   # DELETE /account/1/account_items/1
   # DELETE /account/1/account_items/1.xml
   def destroy
-    @account = Account.find(params[account_id])
+    @account = Account.find(params[:account_id])
     @account_item = @account.account_items.find(params[:id])
     @account_item.destroy
 
     respond_to do |format|
-      format.html { redirect_to(account_url) }
+      format.html { redirect_to(account_account_items_url, :notice => 'Item was successfully deleted!') }
       format.xml  { head :ok }
     end
   end

@@ -21,11 +21,15 @@
     <th>Game Day</th>
     <th>Opponents</th>
     <th>Result</th>
+	<th>Is Accounted</th>
   </tr>
   <tr>
     <td><%= f.date_select :game_date %></td>
-    <td><%= f.collection_select( :home_id, Team.all, :id, :name) %> : <%= f.collection_select( :away_id, Team.all, :id, :name) %></td>
-    <td><%= f.text_field :goals_home, :size => 2 %> : <%= f.text_field :goals_away, :size => 2 %></td>
+    <td><%= f.collection_select( :home_id, Team.all, :id, :name) %> : 
+		<%= f.collection_select( :away_id, Team.all, :id, :name) %></td>
+    <td><%= f.text_field :goals_home, :size => 2 %> : 
+		<%= f.text_field :goals_away, :size => 2 %></td>
+	<td> <%= f.check_box :is_accounted %></td>
   </tr>
 </table>
   <div class="actions">

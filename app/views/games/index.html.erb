@@ -7,6 +7,7 @@
     <th>Away</th>
     <th>Goals home</th>
     <th>Goals away</th>
+	<th>Is Accounted</th>
     <th></th>
     <th></th>
     <th></th>
@@ -17,8 +18,9 @@
     <td><%= game.game_date %></td>
     <td><%= game.home.name %></td>
     <td><%= game.away.name %></td>
-    <td><%= game.goals_away %></td>
     <td><%= game.goals_home %></td>
+    <td><%= game.goals_away %></td>
+	<td><%= game.is_accounted %></td>
     <td><%= link_to 'Show', game %></td>
     <td><%= link_to 'Edit', edit_game_path(game) %></td>
     <td><%= link_to 'Destroy', game, :confirm => 'Are you sure?', :method => :delete %></td>

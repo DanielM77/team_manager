@@ -1,8 +1,9 @@
-<h3>Details for: <%= @account.name %></h3>
+<h3><%= @account.name %></h3>
 <table>
   <tr>
     <th>Item date</th>
     <th>Item type</th>
+	<th>Player</th>
     <th>Description</th>
     <th>Value</th>
     <th></th>
@@ -11,9 +12,11 @@
   </tr>
 
 <% @account_items.each do |account_item| %>
+<% lastname = %>
   <tr>
     <td><%= account_item.item_date %></td>
     <td><%= account_item.item_type %></td>
+	<td><%= account_item.player.lastname unless account_item.player.nil? %></td>
     <td><%= account_item.description %></td>
     <td><%= account_item.value %></td>
     <td><%= link_to 'Show', account_account_item_path(@account, account_item) %></td>

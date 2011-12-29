@@ -1,0 +1,21 @@
+<h3><%= @account.name %></h3>
+<table>
+  <tr>
+    <th>Game date</th>
+    <th>Home</th>
+    <th>Away</th>
+    <th>Goals home</th>
+    <th>Goals away</th>
+	<th>Calculations</th>
+  </tr>
+
+<% @account_games.each do |game| %>
+  <tr>
+	 <td><%= game.game_date %></td>
+	 <td><%= game.home.name %></td>
+	 <td><%= game.away.name %></td>
+	 <td><%= game.goals_away %></td>
+	 <td><%= game.goals_home %></td>
+	<td><%= link_to 'Caclulate Bonus',add_bonuses_from_game(@account, @account_game) %>
+<% end %>
+</table>

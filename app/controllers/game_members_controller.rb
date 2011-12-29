@@ -78,7 +78,7 @@ class GameMembersController < ApplicationController
     @game_member.destroy
 
     respond_to do |format|
-      format.html { redirect_to(game_members_url) }
+      format.html { redirect_to(:back, :notice => 'Game member was successfully deleted.') }
       format.xml  { head :ok }
     end
   end

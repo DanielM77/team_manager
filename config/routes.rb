@@ -1,23 +1,36 @@
 TeamManager::Application.routes.draw do
 
 
+  get "report/index"
+
+  get "pages/home"
+
+  get "pages/contact"
+
+  get "pages/about"
+
   resources :accounts do
     resources :account_items
+    resources :account_games
   end
 
   resources :game_members
 
-  resources :games
+  resources :games do
+    member do
+      post :calc_bonus
+    end
+  end
 
-  resources :teams
+  resources :teams do
+      resources :players
+  end
 
   get "team_statistics/index"
 
   resources :training_members
 
   resources :trainings
-
-  resources :players
   
   resources :bonus
 

@@ -80,4 +80,20 @@ class GamesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  # POST games/calc_bonus
+  def calc_bonus
+    @game = Game.find(params[:id])
+    @game.is_accounted = @game.calc_bonus
+    logger.debug("GAMES_CONTROLLER: @game.is_accounted is #{@game.is_accounted}")
+    #Hier nach @game.save rein?
+    respond_to do |format|
+      if @game.save
+        format.html { redirect_to(@game, :notice => 'Game was successfully updated.') }
+        format.xml  { render :xml => @game, :status => :created, :location => @game }
+      else
+        format.html { render :action => "show" }
+        format.xml  { render :xml => @game.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 end

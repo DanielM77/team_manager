@@ -19,6 +19,7 @@
     </tr>
   </thead>
   <tbody>
+  <% unless @players == nil%>
   <% @players.each do |player| %>
     <tr>
       <td><%= player.lastname %></td>
@@ -31,14 +32,14 @@
       <td><%= format_date(player.birthday) %></td>
       <td><%= player.size_pants %></td>
       <td><%= player.size_shirt %></td>
-      <td><%= link_to 'Show', player %></td>
-      <td><%= link_to 'Edit', edit_player_path(player) %></td>
-      <td><%= link_to 'Destroy', player, :confirm => 'Are you sure?', :method => :delete %></td>
+      <td><%= link_to 'Show', team_player_path(@team, player) %></td>
+      <td><%= link_to 'Edit', edit_team_player_path(@team, player) %></td>
+      <td><%= link_to 'Destroy', team_player_path(@team, player), :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
-  </thead>
+<% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Player', new_player_path %>
+<%= link_to 'New Player', new_team_player_path(:team_id => @team) %>

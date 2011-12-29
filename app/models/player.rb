@@ -1,8 +1,10 @@
 class Player < ActiveRecord::Base
-has_many :training_members, :dependent => :destroy
-has_many :game_members,     :dependent => :destroy
-has_many :trainings,        :through => :training_members
-has_many :games,            :through => :game_members
+has_many    :training_members, :dependent => :destroy
+has_many    :game_members,     :dependent => :destroy
+has_many    :trainings,        :through => :training_members
+has_many    :games,            :through => :game_members
+has_many    :account_items,    :dependent => :destroy
+belongs_to  :team
 default_scope :order => 'lastname'
 validates :lastname, :firstname, :email, :mobile, :presence => true
 validates :lastname, :firstname, :email, :street, :zip_code, :city, :length => {:maximum => 100}

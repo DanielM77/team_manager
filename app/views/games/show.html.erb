@@ -19,7 +19,8 @@
   <th>Lastname</th>
   <th>Firstname</th>
 </tr>
-<% @players.each do |player| %>
+<% unless @players.nil? %>
+<% @players.each do |player|  %>
   <tr>
   <%  
     game_member = player.game_members.find_by_game_id(@game)
@@ -34,7 +35,9 @@
     <td><%=player.firstname %></td>
   </tr>
 <% end %>
+<% end %>
 </table>
+<%= button_to 'Calculate Bonus', calc_bonus_game_path(@game) %> |
 
 <%= link_to 'Edit', edit_game_path(@game) %> |
 <%= link_to 'Back', games_path %>
