@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<b>Type</b>
+	<%= @refund.refund_type %>
+</p>
+<p>
+  <b>Min base value:</b>
+  <%= @refund.min_base_value %>
+</p>
+
+<p>
+  <b>Max base value:</b>
+  <%= @refund.max_base_value %>
+</p>
+<p>
+  <b>Is Shared:</b>
+  <%= @refund.is_shared %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%= @refund.value %>
+</p>
+
+<%= link_to 'Edit', edit_team_refund_path(@team, @refund) %> |
+<%= link_to 'Back', team_refunds_path(@team) %>

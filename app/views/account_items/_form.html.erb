@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :item_type %><br />
-    <%= f.text_field :item_type %>
+    <%= f.select :item_type, AccountItem::ITEM_TYPES %>
   </div>
   <div class="field">
     <%= f.label :description %><br />

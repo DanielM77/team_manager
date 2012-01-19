@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111228111514) do
+ActiveRecord::Schema.define(:version => 20120115115731) do
 
   create_table "account_items", :force => true do |t|
     t.date     "item_date"
@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(:version => 20111228111514) do
     t.integer  "player_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_driver"
   end
 
   create_table "games", :force => true do |t|
@@ -73,6 +74,19 @@ ActiveRecord::Schema.define(:version => 20111228111514) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "team_id"
+    t.integer  "distance"
+    t.boolean  "gets_refund"
+  end
+
+  create_table "refunds", :force => true do |t|
+    t.integer  "team_id"
+    t.string   "refund_type"
+    t.float    "value"
+    t.boolean  "is_shared"
+    t.float    "min_base_value"
+    t.float    "max_base_value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "teams", :force => true do |t|
@@ -97,6 +111,7 @@ ActiveRecord::Schema.define(:version => 20111228111514) do
     t.text     "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "is_accounted",  :default => false
   end
 
 end

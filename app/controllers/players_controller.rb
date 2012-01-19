@@ -1,9 +1,14 @@
 class PlayersController < ApplicationController
+  before_filter :setup_team, :setup_title
+  def setup_team
+    @team = Team.find(params[:team_id])
+  end
+  def setup_title
+    @title = "Player"
+  end
   # GET /players
   # GET /players.xml
   def index
-    @title = "Player"
-    @team = Team.find(params[:team_id])
     @players = @team.players
     respond_to do |format|
       format.html # index.html.erb
@@ -14,8 +19,6 @@ class PlayersController < ApplicationController
   # GET /players/1
   # GET /players/1.xml
   def show
-    @title = "Player"
-    @team = Team.find(params[:team_id])
     @player = @team.players.find(params[:id])
 
     respond_to do |format|
@@ -27,10 +30,7 @@ class PlayersController < ApplicationController
   # GET /players/new
   # GET /players/new.xml
   def new
-    @title = "Player"
-    @team = Team.find(params[:team_id])
     @player = @team.players.build
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @player }
@@ -39,16 +39,13 @@ class PlayersController < ApplicationController
 
   # GET /players/1/edit
   def edit
-    @title = "Player"
-    @player = Player.find(params[:id])
+    @player = @team.players.find(params[:id])
   end
 
   # POST /players
   # POST /players.xml
   def create
-    @title = "Player"
-    @team = Team.find(params[:team_id])
-    @player = @team.players.create(params[:player])
+    @player = @team.players.build(params[:player])
 
     respond_to do |format|
       if @player.save
@@ -64,12 +61,11 @@ class PlayersController < ApplicationController
   # PUT /players/1
   # PUT /players/1.xml
   def update
-    @title = "Player"
-    @player = Player.find(params[:id])
+    @player = @team.players.find(params[:id])
 
     respond_to do |format|
       if @player.update_attributes(params[:player])
-        format.html { redirect_to(@player, :notice => 'Player was successfully updated.') }
+        format.html { redirect_to(team_player_path(@team, @player), :notice => 'Player was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

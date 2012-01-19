@@ -80,4 +80,20 @@ class TrainingsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  # POST training/calc_refunds
+  def calc_refund
+    logger.debug("Starting calc_refund from controller")
+    @training = Training.find(params[:id])
+    @training.is_accounted = @training.calc_refund
+    #@game.is_accounted = @game.calc_bonus
+    respond_to do |format|
+      if @training.save
+        format.html { redirect_to(@training, :notice => 'Training was successfully updated.') }
+        format.xml  { render :xml => @training, :status => :created, :location => @training }
+      else
+        format.html { render :action => "show" }
+        format.xml  { render :xml => @training.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 end

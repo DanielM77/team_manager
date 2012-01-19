@@ -7,7 +7,9 @@
     <th>Zip Code</th>
     <th>City</th>
     <th>Distance</th>
-    <th></th>
+	<th>Refunds</th>
+    <th>Kader</th>
+	<th></th>
     <th></th>
     <th></th>
   </tr>
@@ -19,6 +21,7 @@
     <td><%= team.zip_code %></td>
     <td><%= team.city %></td>
     <td><%= team.distance %></td>
+	<td><%= link_to 'Refunds', team_refunds_path(team)%>
 	<td><%= link_to "Kader (#{team.players.count})", team_players_path(team)%>
     <td><%= link_to 'Show', team %></td>
     <td><%= link_to 'Edit', edit_team_path(team) %></td>

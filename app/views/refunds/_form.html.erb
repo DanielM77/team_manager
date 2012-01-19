@@ -1,0 +1,37 @@
+<%= form_for([@team, @refund]) do |f| %>
+  <% if @refund.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@refund.errors.count, "error") %> prohibited this refund from being saved:</h2>
+
+      <ul>
+      <% @refund.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :refund_type %><br />
+    <%= f.select :refund_type, Refund::REFUND_TYPES, :prompt => "Select a refund type" %>
+  </div>
+  <div class="field">
+    <%= f.label :min_base_value %><br />
+    <%= f.text_field :min_base_value %>
+  </div>
+  <div class="field">
+    <%= f.label :max_base_value %><br />
+    <%= f.text_field :max_base_value %>
+  </div>
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :is_shared %><br />
+    <%= f.check_box :is_shared %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,2 @@
+module OutstandingsHelper
+end

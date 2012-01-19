@@ -13,6 +13,8 @@
       <th>Birthday</th>
       <th>Pants size</th>
       <th>Shirt size</th>
+	  <th>Gets Refund</th>
+	  <th>Distance</th>
       <th></th>
       <th></th>
       <th></th>
@@ -32,6 +34,8 @@
       <td><%= format_date(player.birthday) %></td>
       <td><%= player.size_pants %></td>
       <td><%= player.size_shirt %></td>
+	  <td><%= player.gets_refund %></td>
+	  <td><%= player.distance %><td>
       <td><%= link_to 'Show', team_player_path(@team, player) %></td>
       <td><%= link_to 'Edit', edit_team_player_path(@team, player) %></td>
       <td><%= link_to 'Destroy', team_player_path(@team, player), :confirm => 'Are you sure?', :method => :delete %></td>

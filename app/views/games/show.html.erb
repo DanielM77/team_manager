@@ -16,6 +16,7 @@
 <table>
 <tr>
   <th></th>
+  <th></th>
   <th>Lastname</th>
   <th>Firstname</th>
 </tr>
@@ -26,9 +27,24 @@
     game_member = player.game_members.find_by_game_id(@game)
     begin
       player.games.find(@game) %>
-       <td><%= button_to 'Remove', game_member_path(game_member), :method => :delete %></td>
+       <td><%= button_to 'Remove', game_member_path(game_member), 
+			:method => :delete %></td>
+			<% unless game_member.is_driver  %>
+	   			<td><%= button_to 'Is Driver',
+						switch_is_driver_game_member_path(game_member)				
+					%>
+				</td>
+			<% else %>
+				<td><%= button_to 'No Driver',
+					switch_is_driver_game_member_path(game_member)	
+					 %>
+				</td>
+			<% end %>
+			
    <% rescue ActiveRecord::RecordNotFound  %>
-        <td><%= button_to 'Add', game_members_path(:player_id => player, :game_id => @game)%></td>
+        <td><%= button_to 'Add', game_members_path(:player_id => player, 
+													:game_id => @game)%></td>
+		<td></td>
    <% end %>
   
     <td><%=player.lastname %></td>

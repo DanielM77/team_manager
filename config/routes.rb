@@ -1,6 +1,5 @@
 TeamManager::Application.routes.draw do
 
-
   get "report/index"
 
   get "pages/home"
@@ -12,9 +11,14 @@ TeamManager::Application.routes.draw do
   resources :accounts do
     resources :account_items
     resources :account_games
+    resources :outstandings
   end
 
-  resources :game_members
+  resources :game_members do
+    member do
+      post :switch_is_driver
+    end
+  end
 
   resources :games do
     member do
@@ -24,13 +28,18 @@ TeamManager::Application.routes.draw do
 
   resources :teams do
       resources :players
+      resources :refunds
   end
 
   get "team_statistics/index"
 
   resources :training_members
 
-  resources :trainings
+  resources :trainings do
+    member do
+      post :calc_refund
+    end
+  end
   
   resources :bonus
 

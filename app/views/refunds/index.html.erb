@@ -1,0 +1,31 @@
+<h1>Listing refunds</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Value</th>
+    <th>Min base value</th>
+    <th>Max base value</th>
+	<th>Is Shared</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @refunds.each do |refund| %>
+  <tr>
+	<td><%= refund.refund_type %></td>
+    <td><%= refund.value %></td>
+    <td><%= refund.min_base_value %></td>
+    <td><%= refund.max_base_value %></td>
+	<td><%= refund.is_shared %></td>
+    <td><%= link_to 'Show', team_refund_path(@team, refund) %></td>
+    <td><%= link_to 'Edit', edit_team_refund_path(@team, refund) %></td>
+    <td><%= link_to 'Destroy', team_refund_path(@team,refund), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Refund', new_team_refund_path(@team) %>

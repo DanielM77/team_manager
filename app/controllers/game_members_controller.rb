@@ -62,7 +62,7 @@ class GameMembersController < ApplicationController
 
     respond_to do |format|
       if @game_member.update_attributes(params[:game_member])
-        format.html { redirect_to(@game_member, :notice => 'Game member was successfully updated.') }
+        format.html { redirect_to(@game_member.game, :notice => 'Game member was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -80,6 +80,24 @@ class GameMembersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to(:back, :notice => 'Game member was successfully deleted.') }
       format.xml  { head :ok }
+    end
+  end
+  # POST /game_members/1/switch_is_driver
+  def switch_is_driver
+    @game_member = GameMember.find(params[:id])
+    if @game_member.is_driver == true
+      @game_member.is_driver = false
+    else
+      @game_member.is_driver = true
+    end
+    respond_to do |format|
+      if @game_member.save
+        format.html { redirect_to(@game_member.game, :notice => 'Game member was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @game_member.errors, :status => :unprocessable_entity }
+      end
     end
   end
 end

@@ -39,7 +39,14 @@
   <b>Size pants:</b>
   <%= @player.size_pants %>
 </p>
+<p>
+  <b>Gets Refund</b>
+  <%= @player.gets_refund %>
+</p>
+<p>
+  <b>Distance</b>
+  <%= @player.distance %>
+</p>
 
-
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<%= link_to 'Edit', edit_team_player_path(@team, @player) %> |
+<%= link_to 'Back', team_players_path %>
